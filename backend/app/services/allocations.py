@@ -1,11 +1,11 @@
 from sqlalchemy.orm import Session
-from app.models import (
+from app.models.allocations import (
     SectorAllocation,
     StockAllocation,
     MarketCapAllocation,
     FundOverlap,
-    MutualFund
 )
+from app.models.mutual_fund import MutualFund
 
 async def get_fund_allocations(db: Session, fund_id: int):
     sectors = db.query(SectorAllocation).filter_by(fund_id=fund_id).all()

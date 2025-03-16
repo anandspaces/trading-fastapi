@@ -1,13 +1,16 @@
-from sqlalchemy import Column, Integer, String, Date, Numeric
-from app.database.session import Base
+from pydantic import BaseModel
+from datetime import date
 
-class MutualFund(Base):
-    __tablename__ = "mutual_funds"
+class MutualFundBase(BaseModel):
+    name: str
+    investment_date: date
+    amount_invested: float
+    isn: str
+    nav: float
+    returns: float
+
+class MutualFundResponse(MutualFundBase):
+    id: int
     
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String(255), unique=True, index=True)
-    investment_date = Column(Date)
-    amount_invested = Column(Numeric(12, 2))
-    isn = Column(String(255), unique=True)
-    nav = Column(Numeric(10, 2))
-    returns = Column(Numeric(5, 2))
+    class Config:
+        orm_mode = True

@@ -2,6 +2,10 @@ from fastapi import FastAPI, HTTPException
 from app.routers import overview, allocations, overlaps
 from app.utils.exceptions import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
+from app.database.session import engine, Base
+
+# Create tables first
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
