@@ -24,4 +24,5 @@ class OverlapResponse(BaseModel):
     overlap: float
 
     class Config:
-        orm_mode = True
+        # orm_mode = True
+        from_attributes = True
