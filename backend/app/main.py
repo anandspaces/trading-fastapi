@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
-from app.routers import overview, allocations, overlaps
+from app.routers import allocations, overlaps
 from app.utils.exceptions import http_exception_handler
 from fastapi.middleware.cors import CORSMiddleware
 from app.database.session import engine, Base
+from app.routers import mutual_funds
 
 # Create tables first
 Base.metadata.create_all(bind=engine)
@@ -19,7 +20,7 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(overview.router, prefix="/api")
+app.include_router(mutual_funds.router, prefix="/api")
 app.include_router(allocations.router, prefix="/api")
 app.include_router(overlaps.router, prefix="/api")
 
