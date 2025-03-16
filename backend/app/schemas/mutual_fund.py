@@ -5,7 +5,7 @@ class MutualFundBase(BaseModel):
     name: str
     investment_date: date
     amount_invested: float
-    isn: str
+    isin: str
     nav: float
     returns: float
 

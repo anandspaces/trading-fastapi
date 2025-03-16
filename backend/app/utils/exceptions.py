@@ -7,7 +7,7 @@ class NotFoundException(HTTPException):
             detail=detail
         )
 
-async def http_exception_handler(request, exc):
+def http_exception_handler(request, exc):
     return responses.JSONResponse(
         status_code=exc.status_code,
         content={"detail": exc.detail},

@@ -7,7 +7,7 @@ from app.models.allocations import (
 )
 from app.models.mutual_fund import MutualFund
 
-async def get_fund_allocations(db: Session, fund_id: int):
+def get_fund_allocations(db: Session, fund_id: int):
     sectors = db.query(SectorAllocation).filter_by(fund_id=fund_id).all()
     stocks = db.query(StockAllocation).filter_by(fund_id=fund_id).all()
     market_caps = db.query(MarketCapAllocation).filter_by(fund_id=fund_id).all()
@@ -18,7 +18,7 @@ async def get_fund_allocations(db: Session, fund_id: int):
         "market_caps": market_caps
     }
 
-async def get_all_overlaps(db: Session):
+def get_all_overlaps(db: Session):
     return db.query(
         MutualFund.name.label("fund_a"),
         MutualFund.name.label("fund_b"),

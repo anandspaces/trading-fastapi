@@ -6,8 +6,8 @@ from app.dependencies.database import get_db
 router = APIRouter()
 
 @router.get("/allocations/{fund_id}", response_model=AllocationResponse)
-async def get_allocations(fund_id: int, db=Depends(get_db)):
-    allocations = await get_fund_allocations(db, fund_id)
+def get_allocations(fund_id: int, db=Depends(get_db)):
+    allocations = get_fund_allocations(db, fund_id)
     if not allocations:
         raise HTTPException(status_code=404, detail="Fund not found")
     return allocations
