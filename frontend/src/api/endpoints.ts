@@ -17,13 +17,13 @@ export const getMutualFunds = async (): Promise<{
 
 // Get detailed allocations for a specific fund
 export const getAllocations = async (fundId: string): Promise<AllocationData> => {
-  const response = await client.get(`/mutual-funds/${fundId}/allocations`)
+  const response = await client.get(`/allocations/${fundId}`)
   return response.data
 }
 
 // Get overlap analysis data
 export const getOverlaps = async (): Promise<OverlapData[]> => {
-  const response = await client.get('/mutual-funds/overlaps')
+  const response = await client.get('/overlaps')
   return response.data
 }
 
