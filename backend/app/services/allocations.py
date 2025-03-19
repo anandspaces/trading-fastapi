@@ -5,7 +5,7 @@ from app.models.allocations import (
     MarketCapAllocation,
     FundOverlap,
 )
-from app.models.mutual_fund import MutualFund
+from backend.app.models.mutual_funds import MutualFund
 
 def get_fund_allocations(db: Session, fund_id: int):
     sectors = db.query(SectorAllocation).filter_by(fund_id=fund_id).all()
