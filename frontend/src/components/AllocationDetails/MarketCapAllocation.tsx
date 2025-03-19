@@ -1,6 +1,6 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import { Card } from '../../ui/Card'
-import { MarketCap } from '../../../types/types'
+import { Card } from '../Card'
+import { MarketCap } from '../../types/types'
 
 const COLORS = ['#3b82f6', '#60a5fa', '#93c5fd']
 

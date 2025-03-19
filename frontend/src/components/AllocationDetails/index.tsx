@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AllocationData } from '../../../types/types'
+import { AllocationData } from '../../types/types'
 import { SectorAllocation } from './SectorAllocation'
 import { StockAllocation } from './StockAllocation'
 import { MarketCapAllocation } from './MarketCapAllocation'

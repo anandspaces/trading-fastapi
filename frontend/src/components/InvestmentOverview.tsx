@@ -1,5 +1,5 @@
-import { MutualFund } from '../../types/types'
-import { Card } from '../ui/Card'
+import { MutualFund } from '../types/types'
+import { Card } from './Card'
 
 interface Props {
   data?: MutualFund[]

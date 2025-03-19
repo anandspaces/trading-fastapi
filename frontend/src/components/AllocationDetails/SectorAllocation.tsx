@@ -1,6 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
-import { Card } from '../../ui/Card'
-import { Sector } from '../../../types/types'
+import { Card } from '../Card'
+import { Sector } from '../../types/types'
 
 const COLORS = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe']
 

@@ -1,6 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
-import { Card } from '../../ui/Card'
-import { Stock } from '../../../types/types'
+import { Card } from '../Card'
+import { Stock } from '../../types/types'
 
 interface Props {
   data: Stock[]
