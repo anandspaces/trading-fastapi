@@ -18,19 +18,6 @@ def get_fund_allocations(db: Session, fund_id: int):
         "market_caps": market_caps
     }
 
-# def get_all_overlaps(db: Session):
-#     return db.query(
-#         MutualFund.name.label("fund_a"),
-#         MutualFund.name.label("fund_b"),
-#         FundOverlap.overlap_percentage
-#     ).join(
-#         FundOverlap, MutualFund.id == FundOverlap.fund_a_id
-#     ).join(
-#         MutualFund, FundOverlap.fund_b_id == MutualFund.id
-#     ).all()
-# In services/allocations.py
-# def get_all_overlaps(db: Session):
-#     return db.query(FundOverlap).all()
 def get_all_overlaps(db: Session):
     FundA = aliased(MutualFund, name="fund_a")
     FundB = aliased(MutualFund, name="fund_b")

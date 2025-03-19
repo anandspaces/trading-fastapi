@@ -1,18 +1,3 @@
-# from sqlalchemy import Column, Integer, String, Date, Numeric
-# from app.database.session import Base
-
-# class MutualFund(Base):
-#     __tablename__ = "mutual_funds"
-#     __table_args__ = {'extend_existing': True}
-    
-#     id = Column(Integer, primary_key=True, index=True)
-#     name = Column(String(255), unique=True, index=True)
-#     investment_date = Column(Date)
-#     amount_invested = Column(Numeric(12, 2))
-#     isin = Column(String(255), unique=True)
-#     nav = Column(Numeric(10, 2))
-#     returns = Column(Numeric(5, 2))
-
 from sqlalchemy import Column, Integer, String, Date, Numeric, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database.session import Base
