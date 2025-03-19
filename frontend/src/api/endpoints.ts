@@ -7,7 +7,7 @@ import {
 
 // Get all mutual funds overview data
 export const getMutualFunds = async (): Promise<{
-  overview: MutualFund[]
+  mutual_funds: MutualFund[]
   allocations: AllocationData[]
   overlaps: OverlapData[]
 }> => {

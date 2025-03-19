@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutualFunds } from '../hooks/useMutualFunds';
-import { InvestmentOverview } from './InvestmentOverview';
+import { InvestmentSummary } from './InvestmentSummary';
 import { AllocationDetails } from './AllocationDetails';
 import { OverlapAnalysis } from './OverlapAnalysis';
 import { Loader } from './Loader';
@@ -21,7 +21,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="flex min-h-screen bg-gray-800 text-white">
+    <div className="flex min-h-screen bg-gray-950 text-white">
       {/* Sidebar */}
       <div className="w-60">
         <Sidebar />
@@ -29,8 +29,8 @@ export default function Dashboard() {
 
       {/* Main Content */}
       <div className="flex-1 min-h-screen p-6 md:p-8">
-        <h1 className="text-4xl font-bold mb-8">Good Morning, Yashna!</h1>
-        <h4 className="font-bold text-gray-300 mb-8">Evaluate Your Investment Performance</h4>
+        <h1 className="text-3xl">Good Morning, Yashna!</h1>
+        <p className="text-xl text-gray-500 mb-8">Evaluate Your Investment Performance</p>
 
         {/* Tab Navigation */}
         <nav className="flex border-b border-gray-700 mb-6">
@@ -57,7 +57,7 @@ export default function Dashboard() {
         <div className="space-y-8">
           {activeTab === 'performance' ? (
             <>
-              <InvestmentOverview data={data?.overview} />
+              <InvestmentSummary data={data?.mutual_funds} />
               <div className="bg-gray-900 p-6 rounded-lg shadow-md">
                 <h2 className="text-2xl font-semibold mb-4">Performance Graph</h2>
                 {/* Placeholder for Graph */}

@@ -4,7 +4,7 @@ import { DashboardData } from '../types/types'
 
 export const useMutualFunds = () => {
   return useQuery<DashboardData>({
-    queryKey: ['mutualFunds'],
+    queryKey: ['mutual_funds'],
     queryFn: getMutualFunds,
     staleTime: 1000 * 60 * 5 // 5 minutes
   })

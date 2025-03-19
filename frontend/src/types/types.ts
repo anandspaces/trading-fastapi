@@ -23,6 +23,7 @@ export interface MarketCap {
 }
 
 export interface AllocationData {
+  id: number
   sectors: Sector[]
   stocks: Stock[]
   market_caps: MarketCap[]
@@ -35,7 +36,7 @@ export interface OverlapData {
 }
 
 export interface DashboardData {
-  overview: MutualFund[]
+  mutual_funds: MutualFund[]
   allocations: AllocationData[]
   overlaps: OverlapData[]
 }
