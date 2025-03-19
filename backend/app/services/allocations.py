@@ -1,11 +1,11 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, aliased
 from app.models.allocations import (
     SectorAllocation,
     StockAllocation,
     MarketCapAllocation,
     FundOverlap,
 )
-from backend.app.models.mutual_funds import MutualFund
+from app.models.mutual_funds import MutualFund
 
 def get_fund_allocations(db: Session, fund_id: int):
     sectors = db.query(SectorAllocation).filter_by(fund_id=fund_id).all()
@@ -18,13 +18,29 @@ def get_fund_allocations(db: Session, fund_id: int):
         "market_caps": market_caps
     }
 
+# def get_all_overlaps(db: Session):
+#     return db.query(
+#         MutualFund.name.label("fund_a"),
+#         MutualFund.name.label("fund_b"),
+#         FundOverlap.overlap_percentage
+#     ).join(
+#         FundOverlap, MutualFund.id == FundOverlap.fund_a_id
+#     ).join(
+#         MutualFund, FundOverlap.fund_b_id == MutualFund.id
+#     ).all()
+# In services/allocations.py
+# def get_all_overlaps(db: Session):
+#     return db.query(FundOverlap).all()
 def get_all_overlaps(db: Session):
+    FundA = aliased(MutualFund, name="fund_a")
+    FundB = aliased(MutualFund, name="fund_b")
+    
     return db.query(
-        MutualFund.name.label("fund_a"),
-        MutualFund.name.label("fund_b"),
-        FundOverlap.overlap_percentage
+        FundA.name.label("fund_a"),
+        FundB.name.label("fund_b"),
+        FundOverlap.overlap_percentage.label("overlap")
     ).join(
-        FundOverlap, MutualFund.id == FundOverlap.fund_a_id
+        FundA, FundOverlap.fund_a_id == FundA.id
     ).join(
-        MutualFund, FundOverlap.fund_b_id == MutualFund.id
+        FundB, FundOverlap.fund_b_id == FundB.id
     ).all()

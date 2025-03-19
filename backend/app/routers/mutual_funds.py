@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from backend.app.services.mutual_funds import get_all_funds
-from backend.app.schemas.mutual_funds import MutualFundResponse
+from app.services.mutual_funds import get_all_funds
+from app.schemas.mutual_funds import MutualFundResponse
 from app.dependencies.database import get_db
 
 router = APIRouter()

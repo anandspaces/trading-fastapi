@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from datetime import date
 from app.database.session import SessionLocal, engine, Base
-from backend.app.models.mutual_funds import MutualFund
+from app.models.mutual_funds import MutualFund
 from app.models.allocations import (
     SectorAllocation,
     StockAllocation,
