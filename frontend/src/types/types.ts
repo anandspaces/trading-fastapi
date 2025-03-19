@@ -1,36 +1,36 @@
 export interface MutualFund {
   name: string
-  investmentDate: string
-  amountInvested: number
-  isn: string
+  investment_date: string
+  amount_invested: number
+  isin: string
   nav: number
   returns: number
 }
 
 export interface Sector {
-  name: string
+  sector: string
   percentage: number
 }
 
 export interface Stock {
-  name: string
+  stock: string
   percentage: number
 }
 
 export interface MarketCap {
-  type: string
+  cap_type: string
   percentage: number
 }
 
 export interface AllocationData {
-  name: string
   sectors: Sector[]
   stocks: Stock[]
-  marketCaps: MarketCap[]
+  market_caps: MarketCap[]
 }
 
 export interface OverlapData {
-  pair: string
+  fund_a: string
+  fund_b: string
   overlap: number
 }
 
